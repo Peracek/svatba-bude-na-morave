@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
 import { Link as GatsbyLink } from 'gatsby'
 import { makeStyles } from '@material-ui/styles'
-import { Typography, Link, Container, Theme } from '@material-ui/core'
+import { Typography, Link, Container, Theme, Paper } from '@material-ui/core'
 
 import SEO from '../components/seo'
+import { Section } from '../components/Section'
+import { HighligtedContent } from '../components/HightlighContent'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -17,6 +19,12 @@ const SecondPage: FC = () => {
   return (
     <Container maxWidth="md" className={classes.root}>
       <SEO title="Page two" />
+
+      <Section title="Harmonogram">
+        <HighligtedContent>hello there</HighligtedContent>
+        {/* <Paper elevation={1}>hello there</Paper> */}
+      </Section>
+
       <Typography variant="h2" gutterBottom component="h1">
         Hi from the second page
       </Typography>

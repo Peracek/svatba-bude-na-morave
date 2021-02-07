@@ -1,18 +1,31 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Typescript blog Starter`,
-    description: `A simple blog starter using Typescript in front & back side with eslint & prettier.`,
+    title: `Marie a Prokop – Svatba bude na Moravě`,
+    description: `Informační stránka svatby Marie a Prokopa`,
     author: {
-      name: 'Julien CARON',
-      content: 'I like build some things using Javascript',
-    },
-    social: {
-      github: 'https://github.com/Junscuzzy',
+      name: 'Pavel Peroutka',
     },
   },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: 'Source Sans Pro',
+              variants: ['200', '600'],
+              subsets: ['latin-ext'],
+              //text: 'Hello'
+              //fontDisplay: 'swap',
+              //strategy: 'selfHosted' // 'base64' || 'cdn'
+            },
+          ],
+        },
+      },
+    },
     {
       resolve: 'gatsby-plugin-material-ui',
       // If you want to use styled components you should change the injection order.
