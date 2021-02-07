@@ -19,6 +19,7 @@ const useStyles = makeStyles<Theme, HighligtedContent, string>(
     },
     inner: {
       padding: theme.spacing(4, 6),
+      background: theme.palette.background.default,
     },
   }),
 )

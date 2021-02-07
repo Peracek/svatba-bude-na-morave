@@ -17,12 +17,15 @@ const useStyles = makeStyles((theme: Theme) => ({
 const SecondPage: FC = () => {
   const classes = useStyles()
   return (
-    <Container maxWidth="md" className={classes.root}>
+    <Container className={classes.root}>
       <SEO title="Page two" />
 
       <Section title="Harmonogram">
         <HighligtedContent>hello there</HighligtedContent>
-        {/* <Paper elevation={1}>hello there</Paper> */}
+      </Section>
+
+      <Section title="Dotaznik" tintBg>
+        <HighligtedContent>formular</HighligtedContent>
       </Section>
 
       <Typography variant="h2" gutterBottom component="h1">

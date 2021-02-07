@@ -36,6 +36,9 @@ const makeTheme = (variant: ThemeOptions): Theme => {
       error: {
         main: red.A400,
       },
+      background: {
+        default: '#FFF',
+      },
     },
   }
 
