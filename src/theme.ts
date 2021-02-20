@@ -11,7 +11,7 @@ const makeTheme = (variant: ThemeOptions): Theme => {
   const common = {
     typography: {
       fontFamily: ['Source Sans Pro', 'sans-serif'].join(','),
-      fontSize: 20,
+      fontSize: 18,
       fontWeightLight: 200,
       h1: {
         fontWeight: 600,

@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { makeStyles, ThemeProvider } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
 import { useSelector } from 'react-redux'
+import { ThemeProvider as StyledProvider } from 'styled-components'
 
 import Header from './header'
 import Footer from './footer'
@@ -38,7 +39,9 @@ const Layout: FC = ({ children }) => {
 
   return (
     <ThemeProvider theme={themes[theme]}>
-      <LayoutComponent>{children}</LayoutComponent>
+      <StyledProvider theme={themes[theme]}>
+        <LayoutComponent>{children}</LayoutComponent>
+      </StyledProvider>
     </ThemeProvider>
   )
 }

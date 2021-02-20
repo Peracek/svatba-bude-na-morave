@@ -1,13 +1,6 @@
-import React, { FC } from 'react'
+import { Box, Grid, Theme } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import {
-  Typography,
-  Container,
-  Theme,
-  Paper,
-  Box,
-  Grid,
-} from '@material-ui/core'
+import React, { FC } from 'react'
 
 interface HighligtedContent {}
 
@@ -18,7 +11,7 @@ const useStyles = makeStyles<Theme, HighligtedContent, string>(
       'border-radius': '5px',
     },
     inner: {
-      padding: theme.spacing(4, 6),
+      padding: theme.spacing(7, 8),
       background: theme.palette.background.default,
     },
   }),

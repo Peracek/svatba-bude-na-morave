@@ -4,15 +4,17 @@ import { Typography, Container, Theme } from '@material-ui/core'
 import { transparentize } from 'polished'
 
 interface SectionProps {
-  title: string
+  title?: string
   tintBg?: boolean
 }
 
 const useStyles = makeStyles<Theme, SectionProps, string>((theme: Theme) => ({
   section: {
     backgroundColor: props =>
-      props.tintBg ? theme.palette.primary.main : 'inherit',
-    padding: theme.spacing(8, 0, 6),
+      props.tintBg
+        ? transparentize(0.9, theme.palette.primary.main)
+        : 'inherit',
+    padding: `175px 0`,
   },
 }))
 
@@ -21,15 +23,16 @@ export const Section: FC<SectionProps> = props => {
   return (
     <div className={classes.section}>
       <Container maxWidth="md">
-        <Typography
-          // component="h2"
-          variant="h2"
-          align="center"
-          color="textPrimary"
-          gutterBottom
-        >
-          {props.title}
-        </Typography>
+        {props.title && (
+          <Typography
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            {props.title}
+          </Typography>
+        )}
         {props.children}
       </Container>
     </div>
