@@ -4,17 +4,16 @@ import {
   FormControlLabel,
   FormHelperText,
   FormLabel,
-  Input,
-  InputLabel,
   Radio,
   RadioGroup,
   TextField,
 } from '@material-ui/core'
+import { useFormik } from 'formik'
 import React from 'react'
 import styled from 'styled-components'
 import { firebaseApp } from './firebase'
 
-const Container = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;
 
@@ -23,20 +22,67 @@ const Container = styled.div`
   }
 `
 
+const nonemptyRX = /\w+/
+
 export const RVSP = () => {
+  const formik = useFormik({
+    initialValues: {
+      name: '',
+      willAttend: '',
+      openToCarpool: '',
+      accomodation: '',
+      note: '',
+    },
+    validate: values => {
+      const errs = {} as any
+      if (!nonemptyRX.test(values.name)) {
+        errs.name = `Povinný údaj`
+      }
+      if (values.willAttend === '') {
+        errs.willAttend = `Povinný údaj`
+      }
+      if (values.accomodation === '') {
+        errs.accomodation = `Povinný údaj`
+      }
+      return errs
+    },
+    onSubmit: values =>
+      firebaseApp
+        .database()
+        .ref(`/registration/${new Date().getTime()}`)
+        .set(values),
+  })
+
   return (
-    <Container>
-      <TextField id="name" label="Jméno a příjmení" />
-      <FormControl>
+    <Form onSubmit={formik.handleSubmit}>
+      <TextField
+        id="name"
+        label="Jméno a příjmení"
+        onChange={formik.handleChange}
+        value={formik.values.name}
+        error={!!formik.errors.name}
+        helperText={formik.errors.name}
+        required
+      />
+      <FormControl error={!!formik.errors.willAttend}>
         <FormLabel component="legend">Dorazíš?</FormLabel>
+        <FormHelperText>{formik.errors.willAttend}</FormHelperText>
         <RadioGroup
-          name="coming"
-          value={'yes'}
+          name="willAttend"
+          onChange={formik.handleChange}
+          value={formik.values.willAttend}
           row
-          // onChange={handleChange}
         >
-          <FormControlLabel value="yes" control={<Radio />} label="Ano" />
-          <FormControlLabel value="no" control={<Radio />} label="Ne" />
+          <FormControlLabel
+            value="yes"
+            control={<Radio required />}
+            label="Ano"
+          />
+          <FormControlLabel
+            value="no"
+            control={<Radio required />}
+            label="Ne"
+          />
         </RadioGroup>
       </FormControl>
       <FormControl>
@@ -44,10 +90,10 @@ export const RVSP = () => {
           Můžeš někoho na Velehrad dovézt?
         </FormLabel>
         <RadioGroup
-          name="coming"
-          value={'yes'}
+          name="openToCarpool"
+          onChange={formik.handleChange}
+          value={formik.values.openToCarpool}
           row
-          // onChange={handleChange}
         >
           <FormControlLabel value="yes" control={<Radio />} label="Ano" />
           <FormControlLabel value="no" control={<Radio />} label="Ne" />
@@ -58,50 +104,44 @@ export const RVSP = () => {
         label="Odkud, kolik lidí?"
         helperText="například: z Prahy, 2 lidi autem"
       />
-      <FormControl>
+      <FormControl error={!!formik.errors.accomodation}>
         <FormLabel component="legend">
-          Ubytování: (Možnosti popisujeme níže na stránkách.)
+          Ubytování (Možnosti popisujeme níže na stránkách)
         </FormLabel>
+        <FormHelperText>{formik.errors.accomodation}</FormHelperText>
         <RadioGroup
-          name="coming"
-          value={'yes'}
+          name="accomodation"
+          onChange={formik.handleChange}
+          value={formik.values.accomodation}
           row
-          // onChange={handleChange}
         >
           <FormControlLabel
-            value="yes"
-            control={<Radio />}
+            value="zaridimSiSam"
+            control={<Radio required />}
             label="Zařídím si sám."
           />
           <FormControlLabel
-            value="no"
-            control={<Radio />}
+            value="konirna"
+            control={<Radio required />}
             label="Konírna ve spacáku na karimatce."
           />
           <FormControlLabel
-            value="no"
-            control={<Radio />}
+            value="stojanovoGymnazium"
+            control={<Radio required />}
             label="Stojanovo gymnázium v 3–4lůžkovém pokoji."
           />
         </RadioGroup>
       </FormControl>
       <TextField
-        id="name"
+        id="note"
         label="Máš-li jakoukoli poznámku – tady máš prostor"
         multiline
+        onChange={formik.handleChange}
+        value={formik.values.note}
       />
-      <Button
-        onClick={async () => {
-          console.log('saving')
-          await firebaseApp
-            .database()
-            .ref(`/registration/${new Date().getTime()}`)
-            .set('value')
-          console.log('done')
-        }}
-      >
-        testicek
+      <Button type="submit" color="primary" variant="contained">
+        Odeslat
       </Button>
-    </Container>
+    </Form>
   )
 }
