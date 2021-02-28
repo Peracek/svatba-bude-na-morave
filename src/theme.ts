@@ -22,6 +22,13 @@ const makeTheme = (variant: ThemeOptions): Theme => {
         letterSpacing: '5px',
         textTransform: 'uppercase',
       },
+      h3: {
+        fontWeight: 600,
+        fontSize: 25,
+        letterSpacing: '0.6px',
+        textTransform: 'uppercase',
+        paddingBottom: '12px',
+      },
     },
     palette: {
       text: {

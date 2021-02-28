@@ -1,7 +1,6 @@
-import React, { FC } from 'react'
-import { makeStyles } from '@material-ui/styles'
-import { Typography, Container, Theme } from '@material-ui/core'
+import { Container, Typography } from '@material-ui/core'
 import { transparentize } from 'polished'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 interface SectionProps {
@@ -11,16 +10,7 @@ interface SectionProps {
   paddingBottom?: number
 }
 
-const useStyles = makeStyles<Theme, SectionProps, string>((theme: Theme) => ({
-  section: {
-    backgroundColor: props =>
-      props.tintBg
-        ? transparentize(0.9, theme.palette.primary.main)
-        : 'inherit',
-  },
-}))
-
-const SSection = styled.section<{
+const StyledSection = styled.section<{
   tintBg?: boolean
   paddingTop?: number
   paddingBottom?: number
@@ -30,25 +20,31 @@ const SSection = styled.section<{
     `background: ${transparentize(0.9, p.theme.palette.primary.main)}`};
   padding: 175px 0;
   ${p => p.paddingTop != null && `padding-top: ${p.paddingTop}px`}
-  ${p => p.paddingBottom != null && `padding-bottom: ${p.paddingBottom}px`}
+  ${p => p.paddingBottom != null && `padding-bottom: ${p.paddingBottom}px`};
+`
+
+const Header = styled.div`
+  padding-bottom: ${p => p.theme.spacing(6)}px;
 `
 
 export const Section: FC<SectionProps> = props => {
   return (
-    <SSection {...props}>
+    <StyledSection {...props}>
       <Container maxWidth="md">
         {props.title && (
-          <Typography
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            {props.title}
-          </Typography>
+          <Header>
+            <Typography
+              variant="h2"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
+              {props.title}
+            </Typography>
+          </Header>
         )}
         {props.children}
       </Container>
-    </SSection>
+    </StyledSection>
   )
 }
