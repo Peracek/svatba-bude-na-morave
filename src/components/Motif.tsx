@@ -4,9 +4,11 @@ import Img from 'gatsby-image'
 
 const query = graphql`
   query MotifQuery {
-    imageSharp(id: { eq: "e9e3b616-9356-5cda-bd56-6e17aa21bbd3" }) {
-      fluid(maxWidth: 1920) {
-        ...GatsbyImageSharpFluid_withWebp_tracedSVG
+    file(relativePath: { eq: "motif_full.png" }) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        }
       }
     }
   }
@@ -21,7 +23,7 @@ export const Motif = () => {
 
   return (
     <div>
-      <Img {...data.imageSharp} />
+      <Img {...data.file.childImageSharp} />
     </div>
   )
 }
