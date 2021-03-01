@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     letterSpacing: 'initial',
     textTransform: 'initial',
   },
-  padded: {},
 }))
 
 const Container = styled.div`
