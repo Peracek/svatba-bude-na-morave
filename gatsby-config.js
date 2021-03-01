@@ -1,4 +1,3 @@
-const path = require('path')
 require('dotenv').config()
 
 module.exports = {
@@ -33,7 +32,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: path.join(__dirname, `src`, `images`),
+        path: `${__dirname}/static/img`,
       },
     },
     `gatsby-plugin-sharp`,
