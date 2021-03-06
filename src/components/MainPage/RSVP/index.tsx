@@ -1,5 +1,6 @@
 import {
   Button,
+  CircularProgress,
   FormControl,
   FormControlLabel,
   FormHelperText,
@@ -9,7 +10,7 @@ import {
   TextField,
 } from '@material-ui/core'
 import { useFormik } from 'formik'
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { firebaseApp } from './firebase'
 
@@ -22,9 +23,18 @@ const Form = styled.form`
   }
 `
 
+const Spinner = styled(CircularProgress)`
+  margin-left: ${p => p.theme.spacing(2)}px;
+  color: white;
+`
+
 const nonemptyRX = /\w+/
 
 export const RVSP = () => {
+  const [formState, setFormState] = useState(
+    'init' as 'init' | 'pending' | 'done' | 'error',
+  )
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -46,12 +56,26 @@ export const RVSP = () => {
       }
       return errs
     },
-    onSubmit: values =>
-      firebaseApp
-        .database()
-        .ref(`/registration/${new Date().getTime()}`)
-        .set(values),
+    onSubmit: async values => {
+      setFormState('pending')
+      try {
+        await firebaseApp
+          .database()
+          .ref(`/registration/${new Date().getTime()}`)
+          .set(values)
+        setFormState('done')
+      } catch (e) {
+        setFormState('error')
+      }
+    },
   })
+
+  if (formState === 'done') {
+    return <div>'nice'</div>
+  }
+  if (formState === 'error') {
+    return <div>'ay no'</div>
+  }
 
   return (
     <Form onSubmit={formik.handleSubmit}>
@@ -139,8 +163,14 @@ export const RVSP = () => {
         onChange={formik.handleChange}
         value={formik.values.note}
       />
-      <Button type="submit" color="primary" variant="contained">
+      <Button
+        type="submit"
+        color="primary"
+        variant="contained"
+        disabled={formState === 'pending'}
+      >
         Odeslat
+        {formState === 'pending' && <Spinner size={20} />}
       </Button>
     </Form>
   )
