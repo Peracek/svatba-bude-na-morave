@@ -19,7 +19,7 @@ const StyledSection = styled.section<{
     p.tintBg &&
     `background: ${transparentize(0.9, p.theme.palette.primary.main)}`};
   padding: 175px 0;
-  ${p => p.paddingTop != null && `padding-top: ${p.paddingTop}px`}
+  ${p => p.paddingTop != null && `padding-top: ${p.paddingTop}px`};
   ${p => p.paddingBottom != null && `padding-bottom: ${p.paddingBottom}px`};
 `
 

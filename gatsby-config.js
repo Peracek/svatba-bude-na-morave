@@ -2,7 +2,7 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: `Marie a Prokop – Svatba bude na Moravě`,
+    title: `Marie a Prokop`,
     description: `Informační stránka svatby Marie a Prokopa`,
     author: {
       name: 'Pavel Peroutka',

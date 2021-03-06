@@ -7,6 +7,7 @@ import { Motif } from '../Motif'
 import { TinyMotif } from '../MotifTiny'
 import { Section } from '../Section'
 import { EventTimeline } from './EvenTimeline'
+import { LandingPhoto } from './LandingPhoto'
 import { RVSP } from './RSVP'
 
 const useStyles = makeStyles((theme: Theme) => ({
@@ -39,7 +40,8 @@ export const MainPage: FC = () => {
   const classes = useStyles()
   return (
     <Container>
-      <Section paddingBottom={0}>
+      <LandingPhoto />
+      <Section paddingTop={80} paddingBottom={30}>
         <HighligtedContent>
           <Spaced>
             <Typography
@@ -96,7 +98,7 @@ export const MainPage: FC = () => {
           </Typography>
         </HighligtedContent>
         <Box pt={6} textAlign="center">
-          <Grid container spacing={2}>
+          <Grid container spacing={2} justify="center">
             <Grid item md={6}>
               <Typography variant="h3">Konírna</Typography>
               <Typography>

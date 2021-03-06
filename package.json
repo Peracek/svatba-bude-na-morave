@@ -33,17 +33,17 @@
     "firebase": "^8.2.9",
     "formik": "^2.2.6",
     "gatsby": "^2.32.8",
-    "gatsby-image": "^2.11.0",
+    "gatsby-image": "^3.0.0",
     "gatsby-plugin-google-analytics": "^2.3.13",
     "gatsby-plugin-manifest": "^2.4.23",
     "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.3.10",
-    "gatsby-plugin-sharp": "^2.14.3",
+    "gatsby-plugin-sharp": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.10.0",
     "gatsby-plugin-typescript": "^2.4.18",
     "gatsby-plugin-webfonts": "^1.1.4",
     "gatsby-source-filesystem": "^2.11.1",
-    "gatsby-transformer-sharp": "^2.12.0",
+    "gatsby-transformer-sharp": "^3.0.0",
     "polished": "^4.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -76,6 +76,6 @@
     "url": "https://github.com/Junscuzzy/gatsby-material-typescript-starter/issues"
   },
   "resolutions": {
-    "sharp": "0.25.1"
+    "sharp": "0.27.0"
   }
 }
