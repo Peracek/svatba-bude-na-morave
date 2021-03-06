@@ -1,19 +1,12 @@
-import { Theme, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/styles'
-import React, { FC } from 'react'
-import styled from 'styled-components'
-import { HighligtedContent } from '../HightlighContent'
-import { Motif } from '../Motif'
-import { TinyMotif } from '../MotifTiny'
-import { Section } from '../Section'
-
+import { Typography } from '@material-ui/core'
 import Timeline from '@material-ui/lab/Timeline'
-import TimelineItem from '@material-ui/lab/TimelineItem'
-import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
 import TimelineConnector from '@material-ui/lab/TimelineConnector'
 import TimelineContent from '@material-ui/lab/TimelineContent'
 import TimelineDot from '@material-ui/lab/TimelineDot'
+import TimelineItem from '@material-ui/lab/TimelineItem'
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent'
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator'
+import React from 'react'
 
 const map = (item: string | string[], iteratee: (v: string) => any) =>
   Array.isArray(item) ? item.map(iteratee) : iteratee(item)

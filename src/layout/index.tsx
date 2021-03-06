@@ -1,14 +1,12 @@
 import React, { FC } from 'react'
 import { makeStyles, ThemeProvider } from '@material-ui/styles'
 import { Theme } from '@material-ui/core'
-import { useSelector } from 'react-redux'
 import { ThemeProvider as StyledProvider } from 'styled-components'
 
 import Header from './header'
 import Footer from './footer'
 import themes from '../theme'
 import useSiteMetadata from '../hooks/useSiteMetadata'
-import { RootState } from '../redux/store'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -35,11 +33,9 @@ const LayoutComponent: FC = ({ children }) => {
 }
 
 const Layout: FC = ({ children }) => {
-  const { theme } = useSelector((state: RootState) => state.app)
-
   return (
-    <ThemeProvider theme={themes[theme]}>
-      <StyledProvider theme={themes[theme]}>
+    <ThemeProvider theme={themes['light']}>
+      <StyledProvider theme={themes['light']}>
         <LayoutComponent>{children}</LayoutComponent>
       </StyledProvider>
     </ThemeProvider>

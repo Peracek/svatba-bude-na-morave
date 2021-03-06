@@ -31,6 +31,9 @@ const makeTheme = (variant: ThemeOptions): Theme => {
       },
     },
     palette: {
+      palette: {
+        type: 'light',
+      },
       text: {
         primary: '#004884',
       },
