@@ -18,8 +18,11 @@ export const LandingPhoto = () => {
   const data = useStaticQuery(query)
 
   return (
-    <div>
-      <Img {...data.file.childImageSharp} />
+    <div style={{ height: 'calc(100wh-64px)' }}>
+      <Img
+        {...data.file.childImageSharp}
+        imgStyle={{ objectPosition: '62% 85%' }}
+      />
     </div>
   )
 }
