@@ -1,7 +1,5 @@
-import React from 'react'
-import firebase from 'firebase/app'
-import { useEffect } from 'react'
 import { NoSsr } from '@material-ui/core'
+import React, { useEffect } from 'react'
 
 const InitAnalytics = () => {
   useEffect(() => {

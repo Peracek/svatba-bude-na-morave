@@ -13,12 +13,12 @@ const map = (item: string | string[], iteratee: (v: string) => any) =>
 const items = [
   ['11.00', 'Mše s obřadem'],
   ['12.30', 'Slivovica, koláčky a klobásky'],
-  ['13.00', 'Skupinové foto, průvod na Náměstí Olivové'],
+  ['13.00', 'Skupinové foto, průvod na Náměstí Olivové (Buchlovská 9)'],
   [
     '14.00',
     [
       'Neuspořádané hodování/oběd',
-      'Košt vína, cimbálka, street food, kytica, Břímě, pivo, tanec, doutník, pohodys, oheň, békání',
+      'Košt vína, cimbálka Hlaholica, street food, kytica, Břímě, pivo, tanec, doutník, pohodys, oheň, békání',
     ],
   ],
   ['3.00', 'Přeživší přespávají v domečku na zahradě'],

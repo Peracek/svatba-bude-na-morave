@@ -41,7 +41,7 @@ const makeTheme = (variant: ThemeOptions): Theme => {
         main: '#007ee6',
       },
       secondary: {
-        main: '#19857b',
+        main: '#007ee6',
       },
       error: {
         main: red.A400,

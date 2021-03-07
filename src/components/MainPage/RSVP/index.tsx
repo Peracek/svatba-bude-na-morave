@@ -130,7 +130,7 @@ export const RVSP = () => {
         <>
           <FormControl>
             <FormLabel component="legend">
-              Můžeš někoho na Velehrad dovézt?
+              Pojedeš na Velehrad autem a můžeš někoho vzít?
             </FormLabel>
             <RadioGroup
               name="openToCarpool"
@@ -151,7 +151,7 @@ export const RVSP = () => {
           )}
           <FormControl error={!!formik.errors.accomodation}>
             <FormLabel component="legend">
-              Ubytování (Možnosti popisujeme níže na stránkách)
+              Ubytování (Možnosti popisujeme níže na stránkách.):
             </FormLabel>
             <FormHelperText>{formik.errors.accomodation}</FormHelperText>
             <RadioGroup

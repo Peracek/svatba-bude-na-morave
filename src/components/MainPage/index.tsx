@@ -37,6 +37,10 @@ const Spaced = styled.div`
   }
 `
 
+const Bold = styled.span`
+  font-weight: 600;
+`
+
 export const MainPage: FC = () => {
   const classes = useStyles()
   return (
@@ -56,11 +60,13 @@ export const MainPage: FC = () => {
             </Typography>
             <Typography align="center">
               Bazilika Nanebevzetí Panny Marie a svatých Cyrila a Metoděje na
-              Velehradě (mapa)
+              Velehradě (<a href="https://mapy.cz/s/jofovebuku">mapa</a>).
             </Typography>
             <Typography align="center">
-              Hodláte-li se zúčastnit našeho svatebního dne, prosíme o vyplnění
-              dotazníku níže.
+              <Bold>
+                Hodláte-li se zúčastnit našeho svatebního dne, prosíme o
+                vyplnění dotazníku níže.
+              </Bold>
             </Typography>
           </Spaced>
         </HighligtedContent>
@@ -70,9 +76,14 @@ export const MainPage: FC = () => {
         <HighligtedContent>
           <Typography align="center">
             Oslava se koná na dvoře a zahradě u Olivů. Na dvoře jsou kočičí
-            hlavy, zahrada je svažitá, zvažte dle toho svou obuv. Myšlenkově se
-            také připravte na možnost deště.
+            hlavy, zahrada je svažitá, <Bold>zvažte dle toho svou obuv</Bold>.
+            Myšlenkově se také připravte na <Bold>možnost deště</Bold>.
           </Typography>
+          <Box mt={2}>
+            <Typography align="center">
+              Všechny uvedené časy jsou orientační.
+            </Typography>
+          </Box>
         </HighligtedContent>
         <Box mt={8}>
           <EventTimeline />
@@ -129,7 +140,7 @@ export const MainPage: FC = () => {
       <Section title="Dary" tintBg>
         <HighligtedContent>
           <Typography align="center">
-            Dary jestě nemáme rozmyšlené. Přijdte se podívat později.
+            Dary jestě nemáme rozmyšlené. Přijďte se podívat později.
           </Typography>
         </HighligtedContent>
       </Section>
