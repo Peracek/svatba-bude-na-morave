@@ -1,6 +1,5 @@
 import firebase from 'firebase/app'
 import 'firebase/database'
-import 'firebase/analytics'
 
 export const firebaseApp = firebase.initializeApp({
   apiKey: process.env.GATSBY_FIREBASE_API_KEY,
@@ -12,5 +11,3 @@ export const firebaseApp = firebase.initializeApp({
   appId: process.env.GATSBY_FIREBASE_APP_ID,
   measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
 })
-
-const analytics = firebase.analytics()

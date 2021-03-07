@@ -6,6 +6,7 @@ import { HighligtedContent } from '../HightlighContent'
 import { Motif } from '../Motif'
 import { TinyMotif } from '../MotifTiny'
 import { Section } from '../Section'
+import { Analytics } from './Analytics'
 import { EventTimeline } from './EvenTimeline'
 import { LandingPhoto } from './LandingPhoto'
 import { RVSP } from './RSVP'
@@ -132,6 +133,7 @@ export const MainPage: FC = () => {
           </Typography>
         </HighligtedContent>
       </Section>
+      <Analytics />
     </Container>
   )
 }
