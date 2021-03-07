@@ -4,7 +4,7 @@ import { AppBar, Toolbar, Typography, Link } from '@material-ui/core'
 import styled from 'styled-components'
 
 const SAppBar = styled(AppBar)`
-  background-color: white;
+  background-color: white !important;
 `
 
 export interface HeaderProps {

@@ -20,7 +20,7 @@ const Form = styled.form`
   flex-direction: column;
 
   & > * + * {
-    margin-top: ${p => p.theme.spacing(4)}px;
+    margin-top: ${p => p.theme.spacing(4)}px !important;
   }
 `
 
