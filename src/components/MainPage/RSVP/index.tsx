@@ -39,7 +39,7 @@ export const RVSP = () => {
   const formik = useFormik({
     initialValues: {
       name: '',
-      willAttend: '',
+      willAttend: 'yes',
       openToCarpool: '',
       accomodation: '',
       note: '',
@@ -52,7 +52,7 @@ export const RVSP = () => {
       if (values.willAttend === '') {
         errs.willAttend = `Povinný údaj`
       }
-      if (values.accomodation === '') {
+      if (values.willAttend === 'yes' && values.accomodation === '') {
         errs.accomodation = `Povinný údaj`
       }
       return errs
@@ -126,55 +126,65 @@ export const RVSP = () => {
           />
         </RadioGroup>
       </FormControl>
-      <FormControl>
-        <FormLabel component="legend">
-          Můžeš někoho na Velehrad dovézt?
-        </FormLabel>
-        <RadioGroup
-          name="openToCarpool"
-          onChange={formik.handleChange}
-          value={formik.values.openToCarpool}
-          row
-        >
-          <FormControlLabel value="yes" control={<Radio />} label="Ano" />
-          <FormControlLabel value="no" control={<Radio />} label="Ne" />
-        </RadioGroup>
-      </FormControl>
-      {formik.values.openToCarpool === 'yes' && (
-        <TextField
-          id="name"
-          label="Odkud, kolik lidí?"
-          helperText="například: z Prahy, 2 lidi autem"
-        />
+      {formik.values.willAttend === 'yes' && (
+        <>
+          <FormControl>
+            <FormLabel component="legend">
+              Můžeš někoho na Velehrad dovézt?
+            </FormLabel>
+            <RadioGroup
+              name="openToCarpool"
+              onChange={formik.handleChange}
+              value={formik.values.openToCarpool}
+              row
+            >
+              <FormControlLabel value="yes" control={<Radio />} label="Ano" />
+              <FormControlLabel value="no" control={<Radio />} label="Ne" />
+            </RadioGroup>
+          </FormControl>
+          {formik.values.openToCarpool === 'yes' && (
+            <TextField
+              id="name"
+              label="Odkud, kolik lidí?"
+              helperText="například: z Prahy, 2 lidi autem"
+            />
+          )}
+          <FormControl error={!!formik.errors.accomodation}>
+            <FormLabel component="legend">
+              Ubytování (Možnosti popisujeme níže na stránkách)
+            </FormLabel>
+            <FormHelperText>{formik.errors.accomodation}</FormHelperText>
+            <RadioGroup
+              name="accomodation"
+              onChange={formik.handleChange}
+              value={formik.values.accomodation}
+              row
+            >
+              <FormControlLabel
+                value="zaridimSiSam"
+                control={
+                  <Radio required={formik.errors.willAttend === 'yes'} />
+                }
+                label="Zařídím si sám."
+              />
+              <FormControlLabel
+                value="konirna"
+                control={
+                  <Radio required={formik.errors.willAttend === 'yes'} />
+                }
+                label="Konírna ve spacáku na karimatce."
+              />
+              <FormControlLabel
+                value="stojanovoGymnazium"
+                control={
+                  <Radio required={formik.errors.willAttend === 'yes'} />
+                }
+                label="Stojanovo gymnázium v 3–4lůžkovém pokoji."
+              />
+            </RadioGroup>
+          </FormControl>
+        </>
       )}
-      <FormControl error={!!formik.errors.accomodation}>
-        <FormLabel component="legend">
-          Ubytování (Možnosti popisujeme níže na stránkách)
-        </FormLabel>
-        <FormHelperText>{formik.errors.accomodation}</FormHelperText>
-        <RadioGroup
-          name="accomodation"
-          onChange={formik.handleChange}
-          value={formik.values.accomodation}
-          row
-        >
-          <FormControlLabel
-            value="zaridimSiSam"
-            control={<Radio required />}
-            label="Zařídím si sám."
-          />
-          <FormControlLabel
-            value="konirna"
-            control={<Radio required />}
-            label="Konírna ve spacáku na karimatce."
-          />
-          <FormControlLabel
-            value="stojanovoGymnazium"
-            control={<Radio required />}
-            label="Stojanovo gymnázium v 3–4lůžkovém pokoji."
-          />
-        </RadioGroup>
-      </FormControl>
       <TextField
         id="note"
         label="Máš-li jakoukoli poznámku – tady máš prostor"

@@ -26,6 +26,7 @@ const query = graphql`
 
 const Container = styled.div`
   height: calc(100vh-64px);
+  height: 100vh;
   position: relative;
 `
 
@@ -42,14 +43,14 @@ const Overlay = styled.div`
 
 const Heading = styled.div`
   position: absolute;
-  top: 15%;
+  top: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
 
   ${props => props.theme.breakpoints.up('md')} {
-    top: 30%;
+    /* top: 20%; */
     font-size: 30px;
   }
 `
@@ -74,6 +75,7 @@ export const LandingPhoto = () => {
       <Img
         {...data.photo.childImageSharp}
         imgStyle={{ objectPosition: '62% 85%' }}
+        style={{ height: '100%' }}
       />
       <Overlay />
       <Heading>

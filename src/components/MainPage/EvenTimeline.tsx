@@ -28,12 +28,16 @@ export const EventTimeline = () => (
   <Timeline>
     {items.map(([time, desc], idx) => (
       <TimelineItem>
-        <TimelineOppositeContent>{time}</TimelineOppositeContent>
+        <TimelineOppositeContent
+          style={{ flex: 0.5, transform: 'translateY(-4%)' }}
+        >
+          {time}
+        </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot color={'primary'} />
           {idx < items.length - 1 && <TimelineConnector />}
         </TimelineSeparator>
-        <TimelineContent>
+        <TimelineContent style={{ transform: 'translateY(-10%)' }}>
           {map(desc, d => (
             <Typography>{d}</Typography>
           ))}

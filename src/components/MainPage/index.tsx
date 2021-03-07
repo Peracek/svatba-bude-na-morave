@@ -73,8 +73,9 @@ export const MainPage: FC = () => {
             také připravte na možnost deště.
           </Typography>
         </HighligtedContent>
-
-        <EventTimeline />
+        <Box mt={8}>
+          <EventTimeline />
+        </Box>
       </Section>
       <TinyMotif img="blueberryIn" />
       <Section title="Dotazník" tintBg>
@@ -107,7 +108,7 @@ export const MainPage: FC = () => {
                 <br />
                 50 Kč/noc
                 <br />
-                https://mapy.cz/s/lavojopotu
+                <a href="https://mapy.cz/s/lavojopotu">mapy.cz/s/lavojopotu</a>
               </Typography>
             </Grid>
             <Grid item md={6}>
@@ -117,7 +118,7 @@ export const MainPage: FC = () => {
                 <br />
                 230 Kč/noc
                 <br />
-                https://mapy.cz/s/kubokunede
+                <a href="https://mapy.cz/s/kubokunede">mapy.cz/s/kubokunede</a>
               </Typography>
             </Grid>
           </Grid>

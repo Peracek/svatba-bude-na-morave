@@ -1,6 +1,6 @@
 import { Link as GatsbyLink } from 'gatsby'
 import React, { FC } from 'react'
-import { AppBar, Toolbar, Typography, Link, Button } from '@material-ui/core'
+import { AppBar, Toolbar, Typography, Link } from '@material-ui/core'
 import styled from 'styled-components'
 
 const SAppBar = styled(AppBar)`
@@ -15,7 +15,7 @@ const Header: FC<HeaderProps> = ({ siteTitle = '' }) => {
   return (
     <SAppBar component="header" position="static">
       <Toolbar>
-        <Typography variant="h6">
+        <Typography variant="h6" style={{ fontWeight: 200 }}>
           <Link to="/" component={GatsbyLink}>
             {siteTitle}
           </Link>
