@@ -18,7 +18,7 @@ module.exports = {
           google: [
             {
               family: 'Source Sans Pro',
-              variants: ['200', '600'],
+              variants: ['200', '400', '600'],
               subsets: ['latin-ext'],
               //text: 'Hello'
               //fontDisplay: 'swap',

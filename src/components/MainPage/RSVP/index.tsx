@@ -8,6 +8,7 @@ import {
   Radio,
   RadioGroup,
   TextField,
+  Typography,
 } from '@material-ui/core'
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
@@ -71,10 +72,26 @@ export const RVSP = () => {
   })
 
   if (formState === 'done') {
-    return <div>'nice'</div>
+    if (formik.values.willAttend === 'yes') {
+      return (
+        <Typography align="center">
+          Odesláno.
+          <br />
+          Díky a těšíme se!
+        </Typography>
+      )
+    } else {
+      return <Typography align="center">Odesláno.</Typography>
+    }
   }
   if (formState === 'error') {
-    return <div>'ay no'</div>
+    return (
+      <Typography align="center">
+        🤦‍♂️ Něco se pokazilo.
+        <br />
+        Zkuste to prosím později.
+      </Typography>
+    )
   }
 
   return (
@@ -123,11 +140,13 @@ export const RVSP = () => {
           <FormControlLabel value="no" control={<Radio />} label="Ne" />
         </RadioGroup>
       </FormControl>
-      <TextField
-        id="name"
-        label="Odkud, kolik lidí?"
-        helperText="například: z Prahy, 2 lidi autem"
-      />
+      {formik.values.openToCarpool === 'yes' && (
+        <TextField
+          id="name"
+          label="Odkud, kolik lidí?"
+          helperText="například: z Prahy, 2 lidi autem"
+        />
+      )}
       <FormControl error={!!formik.errors.accomodation}>
         <FormLabel component="legend">
           Ubytování (Možnosti popisujeme níže na stránkách)
