@@ -46,6 +46,7 @@ export const RegistrationsList = ({
         <Table>
           <TableHead>
             <TableRow>
+              <TableCell>Přihlášení</TableCell>
               {columnOrder
                 .map(colId => headers[colId])
                 .map(label => (
@@ -56,6 +57,7 @@ export const RegistrationsList = ({
           <TableBody>
             {Object.entries(data).map(([key, registration]) => (
               <TableRow key={key}>
+                <TableCell>{new Date(+key).toLocaleDateString()}</TableCell>
                 {columnOrder
                   .map(colId => registration[colId])
                   .map(value => (
@@ -69,36 +71,3 @@ export const RegistrationsList = ({
     </Paper>
   )
 }
-
-// export const RegistrationsList = ({orderBy}: {orderBy: string}) => {
-//   const headCells = []
-//   const order = false
-
-//   return (
-//     <TableHead>
-//       <TableRow>
-//         {headCells.map(headCell => (
-//           <TableCell
-//             key={headCell.id}
-//             align={headCell.numeric ? 'right' : 'left'}
-//             padding={headCell.disablePadding ? 'none' : 'default'}
-//             sortDirection={orderBy === headCell.id ? order : false}
-//           >
-//             <TableSortLabel
-//               active={orderBy === headCell.id}
-//               direction={orderBy === headCell.id ? order : 'asc'}
-//               onClick={createSortHandler(headCell.id)}
-//             >
-//               {headCell.label}
-//               {orderBy === headCell.id ? (
-//                 <span className={classes.visuallyHidden}>
-//                   {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-//                 </span>
-//               ) : null}
-//             </TableSortLabel>
-//           </TableCell>
-//         ))}
-//       </TableRow>
-//     </TableHead>
-//   )
-// }
