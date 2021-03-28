@@ -41,6 +41,7 @@ export const RVSP = () => {
       name: '',
       willAttend: 'yes',
       openToCarpool: '',
+      carpoolInfo: '',
       accomodation: '',
       note: '',
     },
@@ -144,7 +145,7 @@ export const RVSP = () => {
           </FormControl>
           {formik.values.openToCarpool === 'yes' && (
             <TextField
-              id="name"
+              id="carpoolInfo"
               label="Odkud, kolik lidí?"
               helperText="například: z Prahy, 2 lidi autem"
             />
