@@ -40,6 +40,7 @@ export const RVSP = () => {
     initialValues: {
       name: '',
       willAttend: 'yes',
+      friday: '',
       openToCarpool: '',
       carpoolInfo: '',
       accomodation: '',
@@ -129,6 +130,18 @@ export const RVSP = () => {
       </FormControl>
       {formik.values.willAttend === 'yes' && (
         <>
+          <FormControl>
+            <FormLabel component="legend">Přijedeš už v pátek?</FormLabel>
+            <RadioGroup
+              name="friday"
+              onChange={formik.handleChange}
+              value={formik.values.friday}
+              row
+            >
+              <FormControlLabel value="yes" control={<Radio />} label="Ano" />
+              <FormControlLabel value="no" control={<Radio />} label="Ne" />
+            </RadioGroup>
+          </FormControl>
           <FormControl>
             <FormLabel component="legend">
               Pojedeš na Velehrad autem a můžeš někoho vzít?
