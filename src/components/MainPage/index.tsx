@@ -41,6 +41,10 @@ const Bold = styled.span`
   font-weight: 600;
 `
 
+const Phone = styled.a`
+  color: inherit;
+`
+
 export const MainPage: FC = () => {
   const classes = useStyles()
   return (
@@ -143,6 +147,44 @@ export const MainPage: FC = () => {
             Dary jestě nemáme rozmyšlené. Přijďte se podívat později.
           </Typography>
         </HighligtedContent>
+      </Section>
+      <TinyMotif img="bird" />
+      <Section title="Kontakty">
+        <HighligtedContent>
+          <Typography align="center">
+            Informace ohledně ubytování, parkování atd. vám podá Kristýna
+            Malíková <Phone href="tel:605490669">605 490 669</Phone>. V případě,
+            že budete ubytováni na internátu Stojanova Gymnázia volejte před
+            svým příjezdem vždy na tato čísla –{' '}
+            <Phone href="tel:605490669">605 490 669</Phone> (Kristýna Malíková)
+            nebo <Phone href="tel:732759985">732 759 985</Phone> (Tomáš Malík).
+          </Typography>
+        </HighligtedContent>
+        <Box pt={6} textAlign="center">
+          <Grid container spacing={2} justify="center">
+            <Grid item md={6}>
+              <Typography variant="h3">Svědkyně nevěsty</Typography>
+              <Typography>
+                Kristýna Trňáková <br />
+                <Phone href="tel:776448739">776 448 739</Phone>
+                <br />
+                rodačka z Velehradu, podá jakékoliv praktické informace týkající
+                se Velehradu, svatebního dne, snoubenců atd.
+              </Typography>
+            </Grid>
+            <Grid item md={6}>
+              <Typography variant="h3">Svědek ženicha</Typography>
+              <Typography>
+                Vašek Šeferna
+                <br />
+                <Phone href="tel:778772335">778 772 335</Phone>
+                <br />
+                podá jakékoliv praktické informace ohledně svatebního dne,
+                snoubenců, atd. :)
+              </Typography>
+            </Grid>
+          </Grid>
+        </Box>
       </Section>
       <Analytics />
     </Container>
