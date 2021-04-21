@@ -144,7 +144,12 @@ export const MainPage: FC = () => {
       <Section title="Dary" tintBg>
         <HighligtedContent>
           <Typography align="center">
-            Dary jestě nemáme rozmyšlené. Přijďte se podívat později.
+            Chcete-li nám dávat dary, nejšířeji využitelné pro nás budou peníze.
+            Nelíbí-li se vám tento planý kapitalismus, pak pro vás{' '}
+            <a href="https://docs.google.com/spreadsheets/d/10h_dmpW3q1Fu-efcT22co0UUfhPGui9kO1_h3dcttQI/edit?usp=sharing">
+              zde máme několik jiných návrhů
+            </a>
+            .
           </Typography>
         </HighligtedContent>
       </Section>
