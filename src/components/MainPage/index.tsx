@@ -145,7 +145,8 @@ export const MainPage: FC = () => {
         <HighligtedContent>
           <Typography align="center">
             Chcete-li nám dávat dary, nejšířeji využitelné pro nás budou peníze.
-            Nelíbí-li se vám tento planý kapitalismus, pak pro vás{' '}
+            Podarovat nás můžete na číslo účtu 236011910/0300.
+            <br /> Nelíbí-li se vám tento planý kapitalismus, pak pro vás{' '}
             <a href="https://docs.google.com/spreadsheets/d/10h_dmpW3q1Fu-efcT22co0UUfhPGui9kO1_h3dcttQI/edit?usp=sharing">
               zde máme několik jiných návrhů
             </a>
